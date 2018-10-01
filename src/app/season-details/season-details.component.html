@@ -1,0 +1,12 @@
+<h3>List of races and winners in {{year}}.</h3>
+<ul>
+  <li *ngFor="let detail of details" 
+    [ngClass]="
+      detail.Results[0].Driver.givenName == champion.givenName && 
+      detail.Results[0].Driver.familyName == champion.familyName 
+      ? 'champion' : '' ">
+    {{detail.round}}. {{detail.raceName}}, 
+    {{detail.Results[0].Driver.givenName}} {{detail.Results[0].Driver.familyName}}
+  </li>
+</ul>
+<span [routerLink]="['/seasons']">Back</span>

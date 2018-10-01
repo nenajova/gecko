@@ -1,0 +1,10 @@
+<ul>
+  <p>Select the year</p>
+  <li 
+    *ngFor="let season of season_list" 
+    [routerLink]="['/seasons', season.season]"
+    class="well year"
+    >
+    {{season.season}}
+  </li>
+</ul>

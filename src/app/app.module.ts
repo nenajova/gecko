@@ -1,18 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { GeckoAppComponent } from './gecko-app.component';
+import { SeasonListComponent } from './season-list/season-list.component'
+import { SeasonDetailsComponent } from './season-details/season-details.component'
 
-import { AppComponent } from './app.component';
+import { ChampionshipService } from './shared/championship.service'
+
+import { HttpClientModule } from '@angular/common/http'
+
+import { RouterModule } from '@angular/router'
+import { appRoutes } from './routes'
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    GeckoAppComponent,
+    SeasonListComponent,
+    SeasonDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ChampionshipService
+  ],
+  bootstrap: [GeckoAppComponent]
 })
 export class AppModule { }
